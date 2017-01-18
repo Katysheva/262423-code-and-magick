@@ -42,7 +42,9 @@
     var wizardWidth = 70;
 
     var getFireballSpeed = function (left) {
-      return left ? 5 : 2;
+      if(typeof(left) === 'boolean') {
+        return left ? 5 : 2;
+      }
     }
 
     var getWizardHeight = function () {
@@ -50,11 +52,15 @@
     }
 
     function getWizardX(width) {
-      return width / 2 - wizardWidth / 2;
+      if(!isNuN(width)) {
+        return width / 2 - wizardWidth / 2;
+      }
     }
 
     function getWizardY(height) {
-      return height * 2 / 3;
+      if(!isNuN(height) {
+        return height * 2 / 3;
+      }
     }
   </script>
 
