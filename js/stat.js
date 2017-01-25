@@ -12,18 +12,18 @@ window.renderStatistics = function (ctx, names, times) {
 
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', 120, 50);
-  ctx.fillText('Список результатов:', 120, 70);
+  ctx.fillText('Ура вы победили!', 140, 50);
+  ctx.fillText('Список результатов:', 140, 70);
 
   var max = maxArrayItem(times);
 
   var histoHeight = 150;
-  var histoX = 140;
   var step = histoHeight / max;
-  var columnIndent = 90;
+  var columnIndent = 50;
+  var histoX = x + columnIndent;
   var columnWidth = 40;
 
-  var user = new Object();
+  var user = {};
 
   for (var i = 0; i < times.length; i++) {
 
@@ -31,7 +31,7 @@ window.renderStatistics = function (ctx, names, times) {
     user.time =  times[i];
 
     var height = step * user.time;
-    var columnX = histoX + columnIndent * i;
+    var columnX = histoX + (columnWidth + columnIndent) * i;
     var columnY = 90 + histoHeight - height;
 
     drawCurrentColumn(ctx, user, columnX, columnY, columnWidth, height);
