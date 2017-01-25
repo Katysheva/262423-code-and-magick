@@ -17,7 +17,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   var max = maxArrayItem(times);
 
-  var histoHeight = 150;
+  var histoHeight = 140;
   var step = histoHeight / max;
   var columnIndent = 50;
   var histoX = x + columnIndent;
@@ -28,11 +28,11 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < times.length; i++) {
 
     user.name = names[i];
-    user.time =  times[i];
+    user.time = times[i];
 
     var height = step * user.time;
     var columnX = histoX + (columnWidth + columnIndent) * i;
-    var columnY = 90 + histoHeight - height;
+    var columnY = 100 + histoHeight - height;
 
     drawCurrentColumn(ctx, user, columnX, columnY, columnWidth, height);
   }
@@ -52,7 +52,7 @@ function drawBgFigure(ctx, x, y, width, fieldHeight, offset, color) {
 
 function maxArrayItem(array) {
   var maxItem = -1;
-  for (var j = 0 ; j < array.length; j++ ) {
+  for (var j = 0; j < array.length; j++) {
     var curItem = array[j];
     if (curItem > maxItem) {
       maxItem = curItem;
